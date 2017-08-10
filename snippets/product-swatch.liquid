@@ -17,6 +17,9 @@
     {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
       {% assign is_color = true %}
     {% endif %}
+    {% if downcased_option contains 'size' %}
+      {% assign is_size = true %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
@@ -42,7 +45,7 @@
         {% else %}
           <label for="swatch-{{ option_index }}-{{ value | handle }}-{{ product.id }}">
             {{ value }}
-            <span class="crossed-out"></span>
+            {% comment %} <span class="crossed-out"></span> {% endcomment %}
           </label>
         {% endif %}
       </div>
